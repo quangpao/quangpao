@@ -17,9 +17,10 @@ jobs:
       - name: devcard
         uses: dailydotdev/action-devcard@3.1.0
         with:
-          user_id: ${{ secrets.DEV_USER_ID }}
-          committer_email: ${{ secrets.COMMIT_EMAIL }}
-          committer_name: ${{ secrets.COMMIT_USERNAME }}
+          user_id: ${{ vars.USER_ID }}
+          committer_email: ${{ vars.COMMIT_EMAIL }}
+          committer_name: ${{ vars.COMMIT_USERNAME }}
+          commit_branch: devcard
           commit_filename: devcard.svg
           commit_message: "chore: Update devcard file ${filename}"
           type: wide
