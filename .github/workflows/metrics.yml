@@ -11,8 +11,7 @@ on:
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
-    steps:              
-      - name: Metrics embed (forked)
+    steps:
       - uses: quangpao/metrics@v1.0.1
         with:
           token: ${{ secrets.METRICS_TOKEN }}
