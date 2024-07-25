@@ -21,6 +21,6 @@ jobs:
           committer_email: ${{ vars.COMMIT_EMAIL }}
           committer_name: ${{ vars.COMMIT_USERNAME }}
           commit_branch: devcard
-          commit_filename: devcard.svg
+          commit_filename: devcard.png
           commit_message: "chore: Update devcard file ${filename}"
           type: wide
