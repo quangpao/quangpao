@@ -21,6 +21,5 @@ jobs:
           committer_email: ${{ secrets.COMMIT_EMAIL }}
           committer_name: ${{ secrets.COMMIT_USERNAME }}
           commit_filename: devcard.svg
-          commit_branch: devcard
           commit_message: "chore: Update devcard file ${filename}"
           type: wide
