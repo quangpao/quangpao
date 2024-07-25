@@ -11,4 +11,6 @@
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/quangpao/quangpao/snk/github-contribution-grid-snake.svg">
         <img src="https://raw.githubusercontent.com/tuc0w/tuc0w/snk/github-contribution-grid-snake.svg" width="652px" alt="Snake">
     </picture>
+    <hr width="652px" />
+    <img src="https://raw.githubusercontent.com/quangpao/quangpao/metrics/github-metrics.svg" width="652px" alt="Metrics" />
 </div>
