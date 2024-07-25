@@ -29,8 +29,8 @@ jobs:
         with:
           github_user_name: ${{ vars.COMMIT_USERNAME }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#A5D7E8&color_dots=#576CBC,#19376D,#0B2447,#4477CE
-            dist/github-contribution-grid-snake-dark.svg?color_snake=#FAF7F0&color_dots=#CDFCF6,#BCCEF8,#98A8F8,#ACBCFF
+            dist/github-contribution-grid-snake.svg?color_snake=#5A639C&color_dots=#F0F3FF,#A5D7E8,#576CBC,#19376D,#0B2447
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#A5D7E8&color_dots=#304463,#5A639C,#7776B3,#9B86BD,#E2BBE9
 
       # spring theme
       - name: generate github-contribution-grid-snake.svg
@@ -39,8 +39,8 @@ jobs:
         with:
           github_user_name: ${{ vars.COMMIT_USERNAME }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#FFDE95&color_dots=#ADD899,#BC5A94,#F075AA,#C3FF93,#94FFD8
-            dist/github-contribution-grid-snake-dark.svg?color_snake=#66ec48&color_dots=#27363d,#f8bbd0,#f06292,#e91e63,#880e4f
+            dist/github-contribution-grid-snake.svg?color_snake=#8C7676&color_dots=#F4EEEE,#FEE3EC,#F9C5D5,#F999B7,#F2789F
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#FA7070&color_dots=#8C7676,#91DDCF,#99F0CA,#C9FDD7,#FDFFE7
 
       # summer theme
       - name: generate github-contribution-grid-snake.svg
@@ -49,8 +49,8 @@ jobs:
         with:
           github_user_name: ${{ vars.COMMIT_USERNAME }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#E6FF94&color_dots=#9DDE8B,#40A578,#006769,#ACD793
-            dist/github-contribution-grid-snake-dark.svg?color_snake=#FEFFD2&color_dots=#FFEEA9,#FFBF78,#FF7D29,#FD9B63
+            dist/github-contribution-grid-snake.svg?color_snake=#EF5A6F&color_dots=#F7F9F2,#FDFFBC,#FFEEBB,#FFDCB8,#FFC1B6
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#AEE6E6&color_dots=#211f20,#534E52,#965D62,#C7956D,#F2D974
 
       # Fall theme
       - name: generate github-contribution-grid-snake.svg
@@ -59,8 +59,8 @@ jobs:
         with:
           github_user_name: ${{ vars.COMMIT_USERNAME }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#B5C18E&color_dots=#F7DCB9,#DEAC80,#914F1E,#A67B5B
-            dist/github-contribution-grid-snake-dark.svg?color_snake=#FFFFEC&color_dots=#F1E4C3,#C6A969,#597E52,#A9B388
+            dist/github-contribution-grid-snake.svg?color_snake=#B6C7AA&color_dots=#F1E5D1,#FED8B1,#ECB176,#A67B5B,#6F4E37
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#E7EFF3&color_dots=#222222,#1C1124,#684656,#DE774E,#B7E1B5
 
       # push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
