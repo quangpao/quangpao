@@ -1,0 +1,68 @@
+name: generate profile metrics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          user: quangpao
+          template: classic
+          base: header, activity, community, metadata
+          config_timezone: Asia/Ho_Chi_Minh
+          output_action: commit
+          committer_branch: metrics
+          committer_message: "chore: 📊 update metrics"
+          repositories_forks: yes
+
+          # Coding habits
+          plugin_habits: yes
+          plugin_habits_from: 1000
+          plugin_habits_days: 30
+          plugin_habits_facts: no
+          plugin_habits_charts: yes
+          plugin_habits_trim: no
+
+          # Isometric commit calendar
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+
+          # Languages
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 30
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_details: percentage
+          plugin_languages_ignored: html, scss, css
+          plugin_languages_limit: 6
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 365
+          plugin_languages_recent_load: 3000
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
+
+          # WakaTime
+          # plugin_wakatime: no
+          # plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+          # plugin_wakatime_days: 30
+          # plugin_wakatime_limit: 3
+          # plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
+          # plugin_wakatime_url: https://wakatime.com
+          # plugin_wakatime_user: .user.login
+
+          # 16personalities
+          plugin_16personalities: yes
+          plugin_16personalities_url: ${{ secrets.SIXTEEN_PERSONALITIES_URL }}
+          plugin_16personalities_sections: personality, profile, traits
+          plugin_16personalities_scores: yes
