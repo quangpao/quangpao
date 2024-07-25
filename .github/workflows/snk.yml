@@ -1,0 +1,74 @@
+name: Generate Snk 
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+  schedule:
+    - cron: "0 */6 * 3,4,5 *" # Runs at 0 minutes past the hour, every 6 hours, only in March, April, and May.
+    - cron: "0 */6 * 6,7,8 *" # Runs at 0 minutes past the hour, every 6 hours, only in June, July, and August.
+    - cron: "0 */6 * 9,10,11 *" # Runs at 0 minutes past the hour, every 6 hours, only in September, October, and November.
+    - cron: "0 */6 * 12,1,2 *" # Runs at 0 minutes past the hour, every 6 hours, only in December, January, and February.
+
+jobs:
+  generate:
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Set current month as environment variable
+        run: echo "CRL_MONTH=$(date +'%m')" >> $GITHUB_ENV
+
+      # winter theme
+      - name: generate github-contribution-grid-snake.svg
+        if: github.event.schedule == '0 */6 * 12,1,2 *' || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains('12 01 02', env.CRL_MONTH))
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ vars.COMMIT_USERNAME }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=#A5D7E8&color_dots=#576CBC,#19376D,#0B2447,#4477CE
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#FAF7F0&color_dots=#CDFCF6,#BCCEF8,#98A8F8,#ACBCFF
+
+      # spring theme
+      - name: generate github-contribution-grid-snake.svg
+        if: github.event.schedule == '0 */6 * 3,4,5 *' || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains('03 04 05', env.CRL_MONTH))
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ vars.COMMIT_USERNAME }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=#FFDE95&color_dots=#ADD899,#BC5A94,#F075AA,#C3FF93,#94FFD8
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#66ec48&color_dots=#27363d,#f8bbd0,#f06292,#e91e63,#880e4f
+
+      # summer theme
+      - name: generate github-contribution-grid-snake.svg
+        if: github.event.schedule == '0 */6 * 6,7,8 *' || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains('06 07 08', env.CRL_MONTH))
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ vars.COMMIT_USERNAME }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=#E6FF94&color_dots=#9DDE8B,#40A578,#006769,#ACD793
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#FEFFD2&color_dots=#FFEEA9,#FFBF78,#FF7D29,#FD9B63
+
+      # Fall theme
+      - name: generate github-contribution-grid-snake.svg
+        if: github.event.schedule == '0 */6 * 9,10,11 *' || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains('09 10 11', env.CRL_MONTH))
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ vars.COMMIT_USERNAME }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=#B5C18E&color_dots=#F7DCB9,#DEAC80,#914F1E,#A67B5B
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#FFFFEC&color_dots=#F1E4C3,#C6A969,#597E52,#A9B388
+
+      # push the content of <build_dir> to a branch
+      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
+      - name: push github-contribution-grid-snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v4.0.0
+        with:
+          build_dir: dist
+          commit_message: "chore: 🐍 update snk"
+          target_branch: snk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
