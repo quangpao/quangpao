@@ -1,3 +1,7 @@
+<div align="center" style="width:652px; text-align:center;">
+    <h1>⧼🍀⧽</h1>
+</div>
+
 <div align="center" style="width:652px;">
     <a href="https://app.daily.dev/quangpao">
         <img src="https://raw.githubusercontent.com/quangpao/quangpao/devcard/devcard.png" width="652px" alt="quangpao's Dev Card" />
