@@ -1,0 +1,26 @@
+name: generate daily.dev devcard
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  devcard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: devcard
+        uses: dailydotdev/action-devcard@3.1.0
+        with:
+          user_id: ${{ secrets.DEV_USER_ID }}
+          committer_email: ${{ secrets.COMMIT_EMAIL }}
+          committer_name: ${{ secrets.COMMIT_USERNAME }}
+          commit_branch: devcard
+          commit_filename: devcard.png
+          commit_message: "chore: Update devcard file ${filename}"
+          type: wide
