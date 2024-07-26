@@ -44,8 +44,8 @@ jobs:
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
           plugin_languages_details: percentage
-          plugin_languages_ignored: html, scss, css
-          plugin_languages_limit: 6
+          plugin_languages_ignored: html, scss, css, kotlin
+          plugin_languages_limit: 3
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 365
           plugin_languages_recent_load: 3000
@@ -53,16 +53,16 @@ jobs:
           plugin_languages_threshold: 0%
 
           # WakaTime
-          # plugin_wakatime: no
-          # plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
-          # plugin_wakatime_days: 30
-          # plugin_wakatime_limit: 3
-          # plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
-          # plugin_wakatime_url: https://wakatime.com
-          # plugin_wakatime_user: .user.login
+          plugin_wakatime: yes
+          plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+          plugin_wakatime_days: 30
+          plugin_wakatime_limit: 3
+          plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
+          plugin_wakatime_url: https://wakatime.com
+          plugin_wakatime_user: .user.login
 
           # 16personalities
-          plugin_16personalities: yes
+          plugin_16personalities: no
           plugin_16personalities_url: ${{ secrets.SIXTEEN_PERSONALITIES_URL }}
           plugin_16personalities_sections: personality, traits
           plugin_16personalities_scores: yes
