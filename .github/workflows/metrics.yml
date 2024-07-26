@@ -12,7 +12,7 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
-      - uses: quangpao/metrics@v1.0.1
+      - uses: quangpao/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
 
